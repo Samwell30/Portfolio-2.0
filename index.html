@@ -5,8 +5,20 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Document</title>
     <link rel="stylesheet" href="./styles.css">
+    <script src="app.js"></script>
     <script src="https://kit.fontawesome.com/ba16e0720e.js" crossorigin="anonymous"></script>
-<body>
+    <script type="text/javascript"
+        src="https://cdn.jsdelivr.net/npm/@emailjs/browser@4/dist/email.min.js">
+</script>
+<script type="text/javascript">
+   (function(){
+      emailjs.init({
+        publicKey: "Veg1CcRKxOFyiOH7O",
+      });
+   })();
+</script>
+</head>
+    <body>
     <section id="landing-page">
         <nav>
             <figure>
@@ -16,19 +28,19 @@
                 <li class="nav__link">
                     <a href="#" class="nav__link--anchor
                     link__hover-effect
-                    link__hover-efect--black
+                    link__hover-effect--black
                     ">About</a>
                 </li>
                 <li class="nav__link">
                     <a href="#" class="nav__link--anchor
                     link__hover-effect
-                    link__hover-efect--black
+                    link__hover-effect--black
                     ">Project</a>
                 </li>
                 <li class="nav__link">
                     <a href="#" class="nav__link--anchor
                     link__hover-effect
-                    link__hover-efect--black
+                    link__hover-effect--black
                     ">Contact</a>
                 </li>
                 <li class="nav__link click" onclick="toggleContrast()">
@@ -69,7 +81,68 @@
         <a href="#projects" class="scroll">
             <div class="scroll__icon click"></div>
         </a>
-    </section>
+        <div class="modal">
+            <div class="modal__half modal__about">
+                <h3 class="modal__title">Here is a bit about me</h3>
+                <h4 class="modal__sub-title modal__sub-title--about">Ftontend Developer</h4>
+                <p class="modal__para">
+                    Lorem ipsum dolor sit amet consectetur adipisicing elit. Dolores itaque eos consequatur debitis deserunt esse?
+                    <br>
+                    Lorem ipsum dolor sit amet, consectetur adipisicing elit. Repellat, unde adipisci!
+                </p>
+                <div class="modal__languages">
+                    <figure class="modal__language">
+                      <img class="modal__language--img" src="https://upload.wikimedia.org/wikipedia/commons/thumb/3/38/HTML5_Badge.svg/240px-HTML5_Badge.svg.png" alt="">
+                      <span class="language__name">HTML</span>
+                    </figure>
+                    <figure class="modal__language">
+                      <img class="modal__language--img" src="https://cdn.iconscout.com/icon/free/png-256/css-131-722685.png" alt="">
+                      <span class="language__name">CSS</span>
+                    </figure>
+                    <figure class="modal__language">
+                      <img class="modal__language--img" src="https://cdn.iconscout.com/icon/free/png-256/javascript-1-225993.png" alt="">
+                      <span class="language__name">JavaScript</span>
+                    </figure>
+                    <figure class="modal__language">
+                      <img class="modal__language--img" src="https://cdn.iconscout.com/icon/free/png-256/typescript-3521774-2945272.png" alt="">
+                      <span class="language__name">TypeScript</span>
+                    </figure>
+                </div>
+            </div>
+            <div class="modal__half modal__contact">
+                <i class="fas fa-times modal__exit click" onclick="toggleModal()"></i>
+                <h3 class="modal__title modal__title--contact">
+                  Let's have a chat!
+                </h3>
+                <h3 class="modal__sub-title modal__sub-title--contact">
+                  I'm currently open to new opportunities.
+                </h3>
+                <form id="contact__form" onsubmit="contact(event)">
+                  <div class="form__item">
+                    <label class="form__item--label">Name</label>
+                    <input class="input" name="user_name" type="text" >
+                  </div>
+                  <div class="form__item">
+                    <label class="form__item--label">Email</label>
+                    <input class="input" name="user_email" type="email" >
+                  </div>
+                  <div class="form__item">
+                    <label class="form__item--label">Message</label>
+                    <textarea class="input" name="message" type="text" ></textarea>
+                  </div>
+                  <button id="contact__submit" class="form__submit">
+                    Send it my way
+                  </button>
+                </form>
+                <div class="modal__overlay modal__overlay--loading">
+                  <i class="fas fa-spinner"></i>
+                </div>
+                <div class="modal__overlay modal__overlay--success">
+                  Thanks for the message! Looking forward to speaking to you soon.
+                </div>
+              </div>        
+            </div> 
+            </section>
     <section id="projects">
         <div class="container">
             <div class="row">
@@ -156,5 +229,51 @@
             </div>
         </div>
     </section>
+    <footer>
+        <div class="container_footer">
+          <div class="row footer__row">
+            <a href="#" class="footer__anchor">
+              <figure class="footer__logo">
+                <img src="./assets/logo.svg" class="footer__logo--img" alt="">
+              </figure>
+              <span class="footer__logo--popper">
+                Top
+                <i class="fas fa-arrow-up"></i>
+              </span>
+            </a>
+            <div class="footer__social--list">
+              <a href="https://github.com" class="
+              footer__social--link
+              link__hover-effect
+              link__hover-effect--white
+            ">
+                GitHub
+              </a>
+              <a href="https://www.linkedin.com" target="_blank" class="
+              footer__social--link
+              link__hover-effect
+              link__hover-effect--white
+            ">
+                LinkedIn
+              </a>
+              <a href="#" class="
+              footer__social--link
+              link__hover-effect
+              link__hover-effect--white
+            ">
+                Contact
+              </a>
+              <a href="./assets/David Bragg Resume.pdf" target="_blank" class="
+              footer__social--link
+              link__hover-effect
+              link__hover-effect--white
+            ">
+                Resume
+              </a>
+            </div>
+            <div class="footer__copyright">Copyright © 2021 David Bragg</div>
+          </div>
+        </div>
+      </footer>
 </body>
 </html>
