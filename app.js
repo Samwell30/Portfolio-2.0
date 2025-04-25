@@ -1,3 +1,32 @@
+const scaleFactor = 1 / 20;  //to prevent it from moving too much
+
+function moveBackground() {
+    const shapes = document.querySelectorAll(".shape")  // to target all and create array
+    const x = event.clientX * scaleFactor;
+    const y = event.clientY * scaleFactor;
+
+    for (let i = 0; i < shapes.length; ++i) {
+        const isOdd = i % 2 !== 0; //to find odd shapes
+        const boolInteger = isOdd ? -1 : 1;
+        shapes[i].style.transform = `translate(${x * boolInteger}px, ${y * boolInteger}px )`
+    }
+}
+
+
+
+
+let contrastToggle = false
+
+function toggleContrast() {
+    contrastToggle = !contrastToggle
+    if (contrastToggle) {
+        document.body.classList += " dark-theme"
+    }
+    else {
+        document.body.classList.remove("dark-theme")
+    }
+}
+
 function contact(event) {
     event.preventDefault();
     const loading = document.querySelector(".modal__overlay--loading");
@@ -21,3 +50,17 @@ function contact(event) {
             );
         });
 }
+
+
+let isModalOpen = false
+
+function toggleModal() {
+    console.log("hifinwf")
+    if (isModalOpen) {
+        isModalOpen = false;
+        return document.body.classList.remove("modal--open")
+    }
+    isModalOpen = true;
+    document.body.classList += ' modal--open'
+}
+
